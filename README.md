@@ -26,7 +26,7 @@ It integrates physics-based modeling, machine learning, and mobile deployment to
 - **composition labeling** (Fat, Protein, and sugar composition analysis)
 - **Medical diagnostics** (e.g., urine analysis) 
 
-![System Overview](figures/Picture1.png)
+![System Overview](figures/overview.png)
 
 The repository is organized into four main modules:
 
