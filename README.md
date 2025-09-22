@@ -11,6 +11,8 @@ This repository provides the official implementation of the paper:
 
 📄 [Paper – pending]() | 📑 [Supplementary – pending]() | 🎥 [Demo Video – pending]()
 
+![System Overview](figures/Picture1.png)  
+
 ---
 
 ## Overview
