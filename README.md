@@ -3,8 +3,9 @@
 This repository provides the official implementation of the paper:  
 
 **MobiLyzer: Fine-grained Mobile Liquid Analyzer**  
-[Shahrzad Mirzaei]()*<sup>1</sup>, [Mariam Bebawy]()*<sup>1</sup>, [Amr Mohamed Sharafeldin]()*<sup>1</sup>, [Mohamed Hefeeda]()*<sup>1,2</sup>  
+*[Shahrzad Mirzaei]()*<sup>1</sup>, *[Mariam Bebawy]()*<sup>1</sup>, *[Amr Mohamed Sharafeldin]()*<sup>1</sup>, *[Mohamed Hefeeda]()*<sup>1,2</sup>  
 <sup>1</sup> School of Computing Science, Simon Fraser University, BC, Canada
+
 <sup>2</sup>  Qatar Computing Research Institute, Hamad Bin Khalifa University, Doha, Qatar
 
 📄 [Paper – pending]() | 📑 [Supplementary – pending]() | 🎥 [Demo Video – pending]()
