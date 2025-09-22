@@ -11,11 +11,11 @@ This repository provides the official implementation of the paper:
 
 📄 [Paper – pending]() | 📑 [Supplementary – pending]() | 🎥 [Demo Video – pending]()
 
-![System Overview](figures/Picture1.png)  
+![mobilyzer](figures/Picture1.png)  
 
 ---
 
-## Overview
+## Overview and Components
 
 MobiLyzer is a novel system for fine-grained analysis of liquids using commodity smartphones.  
 It integrates physics-based modeling, machine learning, and mobile deployment to support tasks such as:  
@@ -26,9 +26,7 @@ It integrates physics-based modeling, machine learning, and mobile deployment to
 - **composition labeling** (Fat, Protein, and sugar composition analysis)
 - **Medical diagnostics** (e.g., urine analysis) 
 
----
-
-## Components
+![System Overview](figures/Picture1.png)
 
 The repository is organized into four main modules:
 
