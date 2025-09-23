@@ -71,14 +71,17 @@ mobilyzer/
 ├─ environment.yml
 ├─ requirements.txt
 └─ README.md
+
 ---
-## Quickstart
 
-### 1) Environment
+Quickstart
+1) Environment
 
-- Python ≥ 3.9 (Conda recommended)  
-- CUDA-enabled PyTorch (tested with 1.8.1 and 2.1+)  
-- See `environment.yml` for pinned versions.  
+Python ≥ 3.9 (Conda recommended)
+
+CUDA-enabled PyTorch (tested with 1.8.1 and 2.1+)
+
+See environment.yml for pinned versions.
 
 ```bash
 conda env create -f environment.yml
