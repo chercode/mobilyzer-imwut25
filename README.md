@@ -102,6 +102,29 @@ CPU:
 
 python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1 triton==3.0.0
 
+```
+
+## Dataset
+
+```bash
+
+dataset_open/
+├─ data/
+│  ├─ evoo/
+│  ├─ milk/
+│  ├─ honey/
+│  ├─ medicine/
+│  └─ urine/
+│
+│  Each liquid folder contains:
+│  ├─ HSI/           # Hyperspectral data (spectra + aligned RGB/NIR)
+│  └─ phone/         # Smartphone data organized by downstream tasks
+│     ├─ fraud/
+│     ├─ origin/
+│     └─ quality/
+│
+└─ models/           # Trained weights / checkpoints
+
 
 ```
 
