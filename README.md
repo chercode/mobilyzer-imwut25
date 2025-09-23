@@ -43,6 +43,35 @@ The repository is organized into four main modules:
 
 ---
 
+## Repository layout
+
+```text
+mobilyzer/
+├─ reconstruction/                 # TSR training & evaluation
+│  ├─ architecture/                # MST++ backbone and TSR heads
+│  ├─ helper_matrices/             # S, B, PS, PB (for cmf & NIR centers)
+│  ├─ train.py                     # Train TSR (truthful spectral recon)
+│  ├─ test.py                      # Quantitative eval (SAM/SID/PSNR/ΔE/MAE)
+│  ├─ utils.py, losses.py, utils_truthful.py
+│  └─ hsi_dataset_mobilyzer.py     # HSI dataset loader
+├─ classification/                 # 1D-CNN classifiers on signatures
+│  ├─ dataset.py                   # loads signature tensors & labels
+│  ├─ train.py                     # k-fold training
+│  └─ test.py                      # hold-out evaluation & reports
+├─ intrinsic/                      # (optional) mobile-optimized intrinsic decomposition
+│  └─ README.md                    # pointers to model export & ONNX runtimes
+├─ datasets/
+│  ├─ HYPERSPECTRAL/               # Specim IQ VNIR (204 bands) [download link]
+│  └─ MOBILE_RGBNIR/               # 4 phones × 7 illuminations × 5 liquids [download link]
+├─ android/                        # Android demo app (screens & APK when available)
+├─ figures/                        # paper figures & diagrams
+├─ scripts/                        # helper shell/Python scripts
+├─ LICENSE
+├─ CITATION.cff
+├─ environment.yml
+└─ README.md
+---
+
 ## Citation
 
 If you use this code or dataset in your research, please cite:  
