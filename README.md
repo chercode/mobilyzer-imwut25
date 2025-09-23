@@ -52,7 +52,7 @@ mobilyzer/
 │  ├─ helper_matrices/             # S, B, PS, PB (for cmf & NIR centers)
 │  ├─ train.py                     # Train TSR (truthful spectral recon)
 │  ├─ test.py                      # Quantitative eval (SAM/SID/PSNR/ΔE/MAE)
-│  ├─ utils.py, losses.py, utils_truthful.py
+│  ├─ utils.py, losses.py, utils_truthful.py  # TSR heads
 │  └─ hsi_dataset_mobilyzer.py     # HSI dataset loader
 ├─ classification/                 # 1D-CNN classifiers on signatures
 │  ├─ dataset.py                   # loads signature tensors & labels
@@ -74,19 +74,18 @@ mobilyzer/
 ``` 
 ---
 
-Quickstart
-1) Environment
+## Quickstart
 
-Python ≥ 3.9 (Conda recommended)
+### 1) Environment
 
-CUDA-enabled PyTorch (tested with 1.8.1 and 2.1+)
-
-See environment.yml for pinned versions.
+- Python ≥ 3.9 (Conda recommended)  
+- CUDA-enabled PyTorch (tested with 1.8.1 and 2.1+)  
+- See `environment.yml` for pinned versions.  
 
 ```bash
 conda env create -f environment.yml
 conda activate mobilyzer
-
+```
 ## Citation
 
 If you use this code or dataset in your research, please cite:  
