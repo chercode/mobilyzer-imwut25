@@ -86,6 +86,26 @@ mobilyzer/
 conda env create -f environment.yml
 conda activate mobilyzer
 ```
+### 2) Install PyTorch
+
+GPU:
+
+```bash
+
+python -m pip install --index-url https://download.pytorch.org/whl/cu121 torch==2.4.1 torchvision==0.19.1 triton==3.0.0
+
+```
+
+CPU:
+
+```bash
+
+python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1 triton==3.0.0
+
+
+```
+
+
 ## Citation
 
 If you use this code or dataset in your research, please cite:  
