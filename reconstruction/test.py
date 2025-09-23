@@ -48,7 +48,7 @@ parser.add_argument("--gpu_id", type=str, default="0")
 parser.add_argument("--data_root", type=str, default="/media/sma318/TOSHIBA EXT/dataset_open/data/evoo/HSI")
 parser.add_argument("--split_root", type=str, default="/media/sma318/TOSHIBA EXT/dataset_open/data/evoo/HSI")
 parser.add_argument("--outf", type=str, default="/local-scratch/MobiTru/exp/exp_test/", help="path log files")
-parser.add_argument("--pretrained_model_path", type=str, default="../models/HSI/dataset_open/2025_09_22_22_47_54/net_9epoch.pth")
+parser.add_argument("--pretrained_model_path", type=str, default="../models/HSI/dataset_open/2025_09_23_14_44_18/net_10epoch.pth")
 
 
 

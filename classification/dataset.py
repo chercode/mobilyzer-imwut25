@@ -14,11 +14,13 @@ class DatasetFromDirectory(Dataset):
     IMAGE_SIZE = 32    # we want 64×64 center patches
     BLOCK_SIZE = 1
     var_name   = "cube"
-    labelslist = ["0", "1", "2", "3", "lf"]  # only these three subfolders
+    labelslist = ["IT", "US"]  # only these three subfolders
+    # labelslist = ["0", "1", "2", "3", "lf"]  # only these three subfolders
 
-    def __init__(self, root, dataset_dir, fruit):
+
+    def __init__(self, root, dataset_dir, liquid):
         self.root   = root
-        self.fruit  = fruit
+        self.liquid  = liquid
         self.labels = []
         self.mats   = []
 

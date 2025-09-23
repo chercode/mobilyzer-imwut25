@@ -76,8 +76,8 @@ def fit_model(model, train_loader, val_loader, optimizer, criterion,
 
 def main():
     parser = argparse.ArgumentParser(description="Train CNN1D with hold‑out + k‑fold")
-    parser.add_argument('--data_root',    type=str, default='/media/sma318/TOSHIBA EXT/MobiLyzer/datasets/classification_resubmit/milk')
-    parser.add_argument('--fruit',        type=str, default='milk')
+    parser.add_argument('--data_root',    type=str, default='/media/sma318/TOSHIBA EXT/dataset_open/data/evoo/phone/origin/reconstructed/')
+    parser.add_argument('--liquid',        type=str, default='evoo')
     parser.add_argument('--test_size',    type=float, default=0.2)
     parser.add_argument('--n_splits',     type=int,   default=4)
     parser.add_argument('--max_epochs',   type=int,   default=50)
@@ -88,8 +88,8 @@ def main():
     args = parser.parse_args()
 
     # — sanity check —
-    ds = DatasetFromDirectory(args.data_root, "", args.fruit)
-    print(f"→ Found {len(ds)} samples in '{args.data_root}' (fruit='{args.fruit}')")
+    ds = DatasetFromDirectory(args.data_root, "", args.liquid)
+    print(f"→ Found {len(ds)} samples in '{args.data_root}' (liquid='{args.liquid}')")
     if len(ds) == 0:
         raise RuntimeError("No data found! Check your data_root and sub‑folders.")
     loader = DataLoader(ds, batch_size=1, shuffle=False)
@@ -146,8 +146,8 @@ def main():
             'model_state_dict': model.state_dict(),
             'scaler': scaler,
             'loss_history': history
-        }, f"Models/CNN1D_{args.fruit}_fold{fold}.pt")
-        print(f"Saved Models/CNN1D_{args.fruit}_fold{fold}.pt")
+        }, f"Models/CNN1D_{args.liquid}_fold{fold}.pt")
+        print(f"Saved Models/CNN1D_{args.liquid}_fold{fold}.pt")
 
 if __name__ == "__main__":
     main()

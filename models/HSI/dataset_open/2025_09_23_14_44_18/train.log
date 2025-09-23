@@ -1,0 +1,30 @@
+2025-09-23 14:47:18 - Iteration [001000] | Epoch [000001] | LR: 0.000399686
+Train Metrics: Total Loss: 0.06467 | MRAE: 0.05864 | SAM: 0.00599 | SID: 0.00005
+Test Metrics: Total Loss: 0.06401 | MRAE: 0.06178 | SAM: 0.00222 | SID: 0.00000 | PSNR: 28.4708
+2025-09-23 14:49:32 - Iteration [002000] | Epoch [000002] | LR: 0.000398881
+Train Metrics: Total Loss: 0.02109 | MRAE: 0.01920 | SAM: 0.00189 | SID: 0.00000
+Test Metrics: Total Loss: 0.04086 | MRAE: 0.03925 | SAM: 0.00161 | SID: 0.00000 | PSNR: 32.0730
+2025-09-23 14:50:49 - Iteration [003000] | Epoch [000003] | LR: 0.000397583
+Train Metrics: Total Loss: 0.01591 | MRAE: 0.01447 | SAM: 0.00143 | SID: 0.00000
+Test Metrics: Total Loss: 0.01841 | MRAE: 0.01715 | SAM: 0.00126 | SID: 0.00000 | PSNR: 37.4943
+2025-09-23 14:52:31 - Iteration [004000] | Epoch [000004] | LR: 0.000395794
+Train Metrics: Total Loss: 0.01240 | MRAE: 0.01122 | SAM: 0.00117 | SID: 0.00000
+Test Metrics: Total Loss: 0.01176 | MRAE: 0.01064 | SAM: 0.00112 | SID: 0.00000 | PSNR: 40.2721
+2025-09-23 14:53:47 - Iteration [005000] | Epoch [000005] | LR: 0.000393520
+Train Metrics: Total Loss: 0.01097 | MRAE: 0.00995 | SAM: 0.00102 | SID: 0.00000
+Test Metrics: Total Loss: 0.01304 | MRAE: 0.01177 | SAM: 0.00126 | SID: 0.00000 | PSNR: 40.1144
+2025-09-23 14:55:40 - Iteration [006000] | Epoch [000006] | LR: 0.000390767
+Train Metrics: Total Loss: 0.01020 | MRAE: 0.00931 | SAM: 0.00090 | SID: 0.00000
+Test Metrics: Total Loss: 0.01211 | MRAE: 0.01101 | SAM: 0.00110 | SID: 0.00000 | PSNR: 40.7461
+2025-09-23 14:57:28 - Iteration [007000] | Epoch [000007] | LR: 0.000387540
+Train Metrics: Total Loss: 0.00898 | MRAE: 0.00816 | SAM: 0.00082 | SID: 0.00000
+Test Metrics: Total Loss: 0.01514 | MRAE: 0.01418 | SAM: 0.00096 | SID: 0.00000 | PSNR: 39.5804
+2025-09-23 14:59:21 - Iteration [008000] | Epoch [000008] | LR: 0.000383848
+Train Metrics: Total Loss: 0.00811 | MRAE: 0.00738 | SAM: 0.00073 | SID: 0.00000
+Test Metrics: Total Loss: 0.00839 | MRAE: 0.00758 | SAM: 0.00081 | SID: 0.00000 | PSNR: 43.4278
+2025-09-23 15:01:05 - Iteration [009000] | Epoch [000009] | LR: 0.000379700
+Train Metrics: Total Loss: 0.00934 | MRAE: 0.00860 | SAM: 0.00073 | SID: 0.00000
+Test Metrics: Total Loss: 0.01075 | MRAE: 0.00994 | SAM: 0.00081 | SID: 0.00000 | PSNR: 42.2608
+2025-09-23 15:02:53 - Iteration [010000] | Epoch [000010] | LR: 0.000375107
+Train Metrics: Total Loss: 0.00691 | MRAE: 0.00630 | SAM: 0.00061 | SID: 0.00000
+Test Metrics: Total Loss: 0.00826 | MRAE: 0.00750 | SAM: 0.00076 | SID: 0.00000 | PSNR: 43.6579
