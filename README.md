@@ -58,19 +58,31 @@ mobilyzer/
 │  ├─ dataset.py                   # loads signature tensors & labels
 │  ├─ train.py                     # k-fold training
 │  └─ test.py                      # hold-out evaluation & reports
-├─ intrinsic/                      # (optional) mobile-optimized intrinsic decomposition
-│  └─ README.md                    # pointers to model export & ONNX runtimes
 ├─ datasets/
-│  ├─ HYPERSPECTRAL/               # Specim IQ VNIR (204 bands) [download link]
-│  └─ MOBILE_RGBNIR/               # 4 phones × 7 illuminations × 5 liquids [download link]
-├─ android/                        # Android demo app (screens & APK when available)
+│  ├─ HSI/                         # Specim IQ VNIR (204 bands, and RGB+NIR)
+│  └─ phone/                       # (RGB+NIR from smartphone camera)
+├─ models/
+│  ├─ HSI/                         # pre-trained models for reconstruction
+│  └─ phone/                       # pre-trained models for classification
+├─ android/                        # Android demo app 
 ├─ figures/                        # paper figures & diagrams
-├─ scripts/                        # helper shell/Python scripts
 ├─ LICENSE
 ├─ CITATION.cff
 ├─ environment.yml
+├─ requirements.txt
 └─ README.md
 ---
+## Quickstart
+
+### 1) Environment
+
+- Python ≥ 3.9 (Conda recommended)  
+- CUDA-enabled PyTorch (tested with 1.8.1 and 2.1+)  
+- See `environment.yml` for pinned versions.  
+
+```bash
+conda env create -f environment.yml
+conda activate mobilyzer
 
 ## Citation
 
