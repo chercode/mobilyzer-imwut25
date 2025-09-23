@@ -43,6 +43,49 @@ The repository is organized into four main modules:
 
 ---
 
+## Repository layout
+
+```text
+mobilyzer/
+├─ reconstruction/                 # TSR training & evaluation
+│  ├─ architecture/                # MST++ backbone and TSR heads
+│  ├─ helper_matrices/             # S, B, PS, PB (for cmf & NIR centers)
+│  ├─ train.py                     # Train TSR (truthful spectral recon)
+│  ├─ test.py                      # Quantitative eval (SAM/SID/PSNR/ΔE/MAE)
+│  ├─ utils.py, losses.py, utils_truthful.py  # TSR heads
+│  └─ hsi_dataset_mobilyzer.py     # HSI dataset loader
+├─ classification/                 # 1D-CNN classifiers on signatures
+│  ├─ dataset.py                   # loads signature tensors & labels
+│  ├─ train.py                     # k-fold training
+│  └─ test.py                      # hold-out evaluation & reports
+├─ datasets/
+│  ├─ HSI/                         # Specim IQ VNIR (204 bands, and RGB+NIR)
+│  └─ phone/                       # (RGB+NIR from smartphone camera)
+├─ models/
+│  ├─ HSI/                         # pre-trained models for reconstruction
+│  └─ phone/                       # pre-trained models for classification
+├─ android/                        # Android demo app 
+├─ figures/                        # paper figures & diagrams
+├─ LICENSE
+├─ CITATION.cff
+├─ environment.yml
+├─ requirements.txt
+└─ README.md
+``` 
+---
+
+## Quickstart
+
+### 1) Environment
+
+- Python ≥ 3.9 (Conda recommended)  
+- CUDA-enabled PyTorch (tested with 1.8.1 and 2.1+)  
+- See `environment.yml` for pinned versions.  
+
+```bash
+conda env create -f environment.yml
+conda activate mobilyzer
+```
 ## Citation
 
 If you use this code or dataset in your research, please cite:  
