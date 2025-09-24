@@ -176,11 +176,11 @@ If you use this code or dataset in your research, please cite:
 
 ```bibtex
 
-@inproceedings{afifi2020deepWB,
-  title={Deep White-Balance Editing},
-  author={Afifi, Mahmoud and Brown, Michael S},
-  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
-  year={2020}
+@article{mobilyzer-imwut26,
+  title={MobiLyzer: Fine-grained Mobile Liquid Analyzer},
+  author={Mirzaei, Shahrzad and Bebawy, Mariam and Sharafeldin, Amr Mohamed and Hefeeda, Mohamed},
+  journal={Pending},
+  year={2026}
 }
 
 ```
