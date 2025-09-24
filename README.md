@@ -157,9 +157,35 @@ python reconstruction/test.py \
     --liquid evoo
 
 ```
-### 2) Truthful Spectral Reconstruction(TSR)
+
+Available pre-trained models:
+
+models/HSI/TSR_evoo_best.pth - Extra Virgin Olive Oil - Link
+models/HSI/TSR_milk_best.pth - Milk samples - Link
+models/HSI/TSR_honey_best.pth - Honey samples - Link
+models/HSI/TSR_medicine_best.pth - Medicine samples - Link
+models/HSI/TSR_urine_best.pth - Urine samples - Link
 
 
+### 2) Classification Training
+
+```bash
+python classification/train.py \
+    --data_root /path/to/dataset/liquid/phone/task/reconstructed/ \
+    --liquid evoo \
+    --n_splits 4 \
+    --max_epochs 100 \
+    --batch_size 256
+```
+
+### 3) Model Evaluation
+```bash
+python classification/test.py \
+    --models_dir models/ \
+    --liquid evoo \
+    --n_splits 4
+
+    ```
 ## Citation
 
 If you use this code or dataset in your research, please cite:  
