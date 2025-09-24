@@ -139,25 +139,15 @@ dataset_open/
 ### 1) Truthful Spectral Reconstruction(TSR)
 Training TSR from Scratch
 ```bash
-python reconstruction/train.py \
-    --data_root /path/to/dataset/liquid/HSI/ \
-    --liquid evoo \
-    --epochs 300 \
-    --batch_size 16 \
-    --lr 1e-4 \
-    --patch_size 64
+python reconstruction/train.py --data_root /path/to/dataset/liquid/HSI/ --liquid evoo --epochs 300 --batch_size 16 --lr 1e-4 --patch_size 64
 ```
 Using Pre-trained TSR Models
 ```bash
 
-python reconstruction/test.py \
-    --model_path models/HSI/TSR_evoo_best.pth \
-    --input_dir datasets/phone/evoo/origin/ \
-    --output_dir datasets/phone/evoo/origin/reconstructed/ \
-    --liquid evoo
+python reconstruction/test.py --model_path models/HSI/TSR_evoo_best.pth --input_dir datasets/phone/evoo/origin/ --output_dir datasets/phone/evoo/origin/reconstructed/ --liquid evoo
 
 ```
-
+```text
 Available pre-trained models:
 
 models/HSI/TSR_evoo_best.pth - Extra Virgin Olive Oil - Link
@@ -166,30 +156,22 @@ models/HSI/TSR_honey_best.pth - Honey samples - Link
 models/HSI/TSR_medicine_best.pth - Medicine samples - Link
 models/HSI/TSR_urine_best.pth - Urine samples - Link
 
-
+```
 ### 2) Classification Training
 
 ```bash
 
-python classification/train.py \
-    --data_root /path/to/dataset/liquid/phone/task/reconstructed/ \
-    --liquid evoo \
-    --n_splits 4 \
-    --max_epochs 100 \
-    --batch_size 256
-    
+python classification/train.py --data_root /path/to/dataset/liquid/phone/task/reconstructed/ --liquid evoo --n_splits 4 --max_epochs 100 --batch_size 256
+
 ```
 
 ### 3) Model Evaluation
 
 ```bash
 
-python classification/test.py \
-    --models_dir models/ \
-    --liquid evoo \
-    --n_splits 4
+python classification/test.py --models_dir models --liquid evoo --n_splits 4
 
-    ```
+```
 ## Citation
 
 If you use this code or dataset in your research, please cite:  
