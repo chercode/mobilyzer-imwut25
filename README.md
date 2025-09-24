@@ -106,6 +106,10 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
 
 ## Dataset
 
+
+```text
+Download the data from this LINK XXX
+```
 ```bash
 
 dataset_open/
@@ -118,7 +122,7 @@ dataset_open/
 │
 │  Each liquid folder contains:
 │  ├─ HSI/           # Hyperspectral data (spectra + aligned RGB/NIR)
-│  └─ phone/         # Smartphone data organized by downstream tasks
+│  └─ phone/         # Smartphone data organized by each case
 │     ├─ fraud/
 │     ├─ origin/
 │     └─ quality/
@@ -127,6 +131,33 @@ dataset_open/
 
 
 ```
+
+
+
+## Getting Started
+
+### 1) Truthful Spectral Reconstruction(TSR)
+Training TSR from Scratch
+```bash
+python reconstruction/train.py \
+    --data_root /path/to/dataset/liquid/HSI/ \
+    --liquid evoo \
+    --epochs 300 \
+    --batch_size 16 \
+    --lr 1e-4 \
+    --patch_size 64
+```
+Using Pre-trained TSR Models
+```bash
+
+python reconstruction/test.py \
+    --model_path models/HSI/TSR_evoo_best.pth \
+    --input_dir datasets/phone/evoo/origin/ \
+    --output_dir datasets/phone/evoo/origin/reconstructed/ \
+    --liquid evoo
+
+```
+### 2) Truthful Spectral Reconstruction(TSR)
 
 
 ## Citation
