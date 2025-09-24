@@ -170,6 +170,12 @@ python3 classification/train.py --data_root /path/to/dataset/liquid/phone/task/r
 python3 classification/test.py --models_dir models --liquid evoo --n_splits 4
 
 ```
+
+
+## Mobile Application
+
+XXX Link
+
 ## Citation
 
 If you use this code or dataset in your research, please cite:  
