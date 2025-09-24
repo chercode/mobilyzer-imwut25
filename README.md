@@ -170,16 +170,20 @@ models/HSI/TSR_urine_best.pth - Urine samples - Link
 ### 2) Classification Training
 
 ```bash
+
 python classification/train.py \
     --data_root /path/to/dataset/liquid/phone/task/reconstructed/ \
     --liquid evoo \
     --n_splits 4 \
     --max_epochs 100 \
     --batch_size 256
+    
 ```
 
 ### 3) Model Evaluation
+
 ```bash
+
 python classification/test.py \
     --models_dir models/ \
     --liquid evoo \
