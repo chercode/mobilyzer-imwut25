@@ -177,7 +177,8 @@ models/HSI/TSR_urine_best.pth - Urine samples - Link
 
 Train a 1D-CNN on reconstructed spectral signatures (68-D vectors) for tasks like fraud, origin, quality, and medical:
 
-# data_root must point to reconstructed spectra produced by TSR
+data_root must point to reconstructed spectra produced by TSR
+
 ```bash
 python3 classification/train.py \
   --data_root /path/to/datasets/phone/evoo/<task>/reconstructed/ \
