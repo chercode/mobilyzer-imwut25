@@ -9,7 +9,7 @@ This repository provides the official implementation of the  IMWUT/Ubicomp 2026 
 
 <sup>2</sup>  Qatar Computing Research Institute, Hamad Bin Khalifa University, Doha, Qatar
 
-📄 [Paper – pending]() | 📑 [Supplementary – pending]() | 🎥 [Demo Video – pending]()
+📄 [Paper – pending]() | 📑 [Supplementary – pending]() | 🎥 [Demo Video – pending]() | [Application – pending]()
 
 ![mobilyzer](figures/Picture1.png)  
 
@@ -64,12 +64,9 @@ mobilyzer/
 ├─ models/
 │  ├─ HSI/                         # pre-trained models for reconstruction
 │  └─ phone/                       # pre-trained models for classification
-├─ android/                        # Android demo app 
 ├─ figures/                        # paper figures & diagrams
 ├─ LICENSE
-├─ CITATION.cff
 ├─ environment.yml
-├─ requirements.txt
 └─ README.md
 ``` 
 ---
@@ -134,7 +131,10 @@ dataset_open/
 
 ## Getting Started
 
-### 1) Truthful Spectral Reconstruction(TSR)
+### 1) Intrinsic Decomposition
+
+
+### 2) Truthful Spectral Reconstruction(TSR)
 Training TSR from Scratch
 ```bash
 python3 reconstruction/train.py --data_root /path/to/dataset/liquid/HSI/ --liquid evoo --epochs 300 --batch_size 16 --lr 1e-4 --patch_size 64
@@ -155,7 +155,7 @@ models/HSI/TSR_medicine_best.pth - Medicine samples - Link
 models/HSI/TSR_urine_best.pth - Urine samples - Link
 
 ```
-### 2) Classification Training
+### 3) Liquid Analysis
 
 ```bash
 
@@ -163,7 +163,7 @@ python3 classification/train.py --data_root /path/to/dataset/liquid/phone/task/r
 
 ```
 
-### 3) Model Evaluation
+### 4) Model Evaluation
 
 ```bash
 
@@ -172,7 +172,7 @@ python3 classification/test.py --models_dir models --liquid evoo --n_splits 4
 ```
 
 
-## Mobile Application
+### 5) Mobile Application
 
 XXX Link
 
@@ -180,12 +180,14 @@ XXX Link
 
 If you use this code or dataset in your research, please cite:  
 
+XXX Pending
 ```bibtex
+
 
 @article{mobilyzer-imwut26,
   title={MobiLyzer: Fine-grained Mobile Liquid Analyzer},
   author={Mirzaei, Shahrzad and Bebawy, Mariam and Sharafeldin, Amr Mohamed and Hefeeda, Mohamed},
-  journal={Pending},
+  journal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
   year={2026}
 }
 
