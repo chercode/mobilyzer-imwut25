@@ -1,6 +1,6 @@
 # MobiLyzer: Fine-grained Mobile Liquid Analyzer
 
-This repository provides the official implementation of the  IMWUT/Ubicomp 2026 paper:  
+This repository provides the official implementation of the  **IMWUT/Ubicomp 2026** paper:  
 
 **MobiLyzer: Fine-grained Mobile Liquid Analyzer**  
 *[Shahrzad Mirzaei]()*<sup>1</sup>, *[Mariam Bebawy]()*<sup>1</sup>, *[Amr Mohamed Sharafeldin]()*<sup>1</sup>, and *[Mohamed Hefeeda]()*<sup>1,2</sup>  
@@ -9,7 +9,7 @@ This repository provides the official implementation of the  IMWUT/Ubicomp 2026 
 
 <sup>2</sup>  Qatar Computing Research Institute, Hamad Bin Khalifa University, Doha, Qatar
 
-📄 [Paper – pending]() | 📑 [Supplementary – pending]() | 🎥 [Demo Video – pending]() | [Application – pending]()
+ [Paper – pending]() | [Supplementary – pending]() | [Demo Video – pending]() | [Application – pending]()
 
 ![mobilyzer](figures/Picture1.png)  
 
@@ -105,11 +105,11 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
 
 
 ```text
-Download the data from this LINK XXX
+XXX Download the data from this LINK XXX
 ```
 ```bash
 
-dataset_open/
+datasets/
 ├─ data/
 │  ├─ evoo/
 │  ├─ milk/
@@ -141,8 +141,6 @@ datasets/phone/<liquid>/intrinsic/
 ```
 Each folder contains normalized RGB albedo images, which should be used as the input to the TSR reconstruction model instead of raw phone captures.
 
-Model reference:
-
 We adapted the intrinsic decomposition model from [Careaga et al.](https://github.com/compphoto/Intrinsic) and re-engineered it for efficiency on smartphones, including ONNX export and quantization for reduced memory footprint and faster inference. Please find more information in our paper.
 
 ### 2) Truthful Spectral Reconstruction(TSR)
@@ -166,7 +164,17 @@ models/HSI/TSR_medicine_best.pth - Medicine samples - Link
 models/HSI/TSR_urine_best.pth - Urine samples - Link
 
 ```
+
+Inputs: use ```bash datasets/phone/<liquid>/<task>/intrinsic/ ``` (albedo RGB) + the matching nir/ folder.
+
+NIR choice: set ```bash --nir 850 ``` or --nir 940 to match the device (e.g., night-vision cams ≈850 nm; FaceID-style ≈940 nm).
+
+Bands: --bands 68 is the default we provide; higher values increase compute with little accuracy gain.
+
+Outputs: .npy (or .mat, depending on your script) per sample under .../reconstructed/.
 ### 3) Liquid Analysis
+
+Train and Evaluation:
 
 ```bash
 
@@ -174,7 +182,7 @@ python3 classification/train.py --data_root /path/to/dataset/liquid/phone/task/r
 
 ```
 
-### 4) Model Evaluation
+Test a pretrained model:
 
 ```bash
 
@@ -183,7 +191,7 @@ python3 classification/test.py --models_dir models --liquid evoo --n_splits 4
 ```
 
 
-### 5) Mobile Application
+### 4) Mobile Application
 
 XXX Link
 
