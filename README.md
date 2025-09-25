@@ -146,12 +146,12 @@ We adapted the intrinsic decomposition model from [Careaga et al.](https://githu
 ### 2) Truthful Spectral Reconstruction(TSR)
 Training TSR from Scratch
 ```bash
-python3 reconstruction/train.py --data_root /path/to/dataset/liquid/HSI/ --liquid evoo --epochs 300 --batch_size 16 --lr 1e-4 --patch_size 64
+python3 reconstruction/train.py --data_root /path/to/dataset/liquid/HSI/ --liquid evoo --epochs 20 --batch_size 16 --lr 1e-4 --patch_size 64
 ```
 Using Pre-trained TSR Models
 ```bash
 
-python3 reconstruction/test.py --model_path models/HSI/TSR_evoo_best.pth --input_dir datasets/phone/evoo/origin/ --output_dir datasets/phone/evoo/origin/reconstructed/ --liquid evoo
+python3 reconstruction/test.py --model_path models/HSI/TSR_evoo_best.pth --input_dir datasets/phone/evoo/origin/IT --output_dir datasets/phone/evoo/origin/reconstructed/ --liquid evoo
 
 ```
 ```text
@@ -165,31 +165,47 @@ models/HSI/TSR_urine_best.pth - Urine samples - Link
 
 ```
 
-Inputs: use ``` datasets/phone/<liquid>/<task>/intrinsic/ ``` (albedo RGB) + the matching nir/ folder.
+**Inputs:** use ``` datasets/phone/<liquid>/<task>/intrinsic/ ``` (albedo RGB) + the matching nir/ folder.
 
-NIR choice: set ``` --nir 850 ``` or ```--nir 940``` to match the device (e.g., night-vision cameras ≈850 nm; FaceID cameras ≈940 nm).
+**NIR choice:** set ``` --nir 850 ``` or ```--nir 940``` to match the device (e.g., night-vision cameras ≈850 nm; FaceID cameras ≈940 nm).
 
-Bands: ```--bands 68``` is the default we provide; higher values increase compute with little/no accuracy gain.
+**Bands:** ```--bands 68``` is the default we provide; higher values increase compute with little/no accuracy gain.
 
-Outputs: ```.mat``` per sample saved under .../reconstructed/. which will be the input to our classification model.
+**Outputs:** ```.mat``` per sample saved under .../reconstructed/. which will be the input to our classification model.
 
 ### 3) Liquid Analysis
 
-Train and Evaluation:
+Train a 1D-CNN on reconstructed spectral signatures (68-D vectors) for tasks like fraud, origin, quality, and medical:
 
+# data_root must point to reconstructed spectra produced by TSR
 ```bash
-
-python3 classification/train.py --data_root /path/to/dataset/liquid/phone/task/reconstructed/ --liquid evoo --n_splits 4 --max_epochs 100 --batch_size 256
+python3 classification/train.py \
+  --data_root /path/to/datasets/phone/evoo/<task>/reconstructed/ \
+  --liquid evoo \
+  --n_splits 4 \
+  --max_epochs 100 \
+  --batch_size 256
 
 ```
-
-Test a pretrained model:
-
+Evaluate a pretrained classifier:
 ```bash
-
-python3 classification/test.py --models_dir models --liquid evoo --n_splits 4
-
+python3 classification/test.py \
+  --models_dir models/phone/evoo/<task>/ \
+  --liquid evoo \
+  --n_splits 4
 ```
+
+Notes
+
+**Inputs:** each sample in ```.../reconstructed/``` should be a spectrum (.mat) with 68 bands from TSR.
+
+**Liquid:** 
+
+**Splits:** --n_splits 4 performs stratified K-fold (recommended);
+
+Outputs: 
+
+Reports: the test command prints accuracy/precision/recall (and confusion matrix if supported) and saves them next to the checkpoints.
 
 
 ### 4) Mobile Application
