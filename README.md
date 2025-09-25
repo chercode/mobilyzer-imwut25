@@ -133,6 +133,17 @@ dataset_open/
 
 ### 1) Intrinsic Decomposition
 
+In the dataset structure, intrinsic decomposition outputs are stored under:
+
+```bash
+datasets/phone/<liquid>/intrinsic/
+
+```
+Each folder contains normalized RGB albedo images, which should be used as the input to the TSR reconstruction model instead of raw phone captures.
+
+Model reference:
+
+We adapted the intrinsic decomposition model from [Careaga et al.](https://github.com/compphoto/Intrinsic) and re-engineered it for efficiency on smartphones, including ONNX export and quantization for reduced memory footprint and faster inference. Please find more information in our paper.
 
 ### 2) Truthful Spectral Reconstruction(TSR)
 Training TSR from Scratch
