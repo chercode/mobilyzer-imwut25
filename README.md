@@ -1,6 +1,6 @@
 # MobiLyzer: Fine-grained Mobile Liquid Analyzer
 
-This repository provides the official implementation of the paper:  
+This repository provides the official implementation of the  IMWUT/Ubicomp 2026 paper:  
 
 **MobiLyzer: Fine-grained Mobile Liquid Analyzer**  
 *[Shahrzad Mirzaei]()*<sup>1</sup>, *[Mariam Bebawy]()*<sup>1</sup>, *[Amr Mohamed Sharafeldin]()*<sup>1</sup>, and *[Mohamed Hefeeda]()*<sup>1,2</sup>  
