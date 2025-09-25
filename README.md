@@ -165,13 +165,14 @@ models/HSI/TSR_urine_best.pth - Urine samples - Link
 
 ```
 
-Inputs: use ```bash datasets/phone/<liquid>/<task>/intrinsic/ ``` (albedo RGB) + the matching nir/ folder.
+Inputs: use ``` datasets/phone/<liquid>/<task>/intrinsic/ ``` (albedo RGB) + the matching nir/ folder.
 
-NIR choice: set ```bash --nir 850 ``` or --nir 940 to match the device (e.g., night-vision cams ≈850 nm; FaceID-style ≈940 nm).
+NIR choice: set ``` --nir 850 ``` or ```--nir 940``` to match the device (e.g., night-vision cameras ≈850 nm; FaceID cameras ≈940 nm).
 
-Bands: --bands 68 is the default we provide; higher values increase compute with little accuracy gain.
+Bands: ```--bands 68``` is the default we provide; higher values increase compute with little/no accuracy gain.
 
-Outputs: .npy (or .mat, depending on your script) per sample under .../reconstructed/.
+Outputs: ```.mat``` per sample saved under .../reconstructed/. which will be the input to our classification model.
+
 ### 3) Liquid Analysis
 
 Train and Evaluation:
