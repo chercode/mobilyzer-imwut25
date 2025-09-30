@@ -105,9 +105,19 @@ def main():
     X_trval, X_test, y_trval, y_test = train_test_split(
         X, y, test_size=args.test_size,
         stratify=y, random_state=args.random_state)
-    os.makedirs("Models", exist_ok=True)
-    np.save("Models/X_test.npy", X_test)  # note: you probably meant to save y_test here
-    np.save("Models/y_test.npy", y_test)
+    # os.makedirs("models", exist_ok=True)
+    # np.save("models/X_test.npy", X_test) 
+    # np.save("models/y_test.npy", y_test)
+
+    # Define your phone models path relative to data root
+    phone_models_dir = os.path.join(args.data_root, "..", "..", "models", "phone")
+    phone_models_dir = os.path.abspath(phone_models_dir)
+    os.makedirs(phone_models_dir, exist_ok=True)
+
+    # Save test splits
+    np.save(os.path.join(phone_models_dir, "X_test.npy"), X_test)
+    np.save(os.path.join(phone_models_dir, "y_test.npy"), y_test)
+
 
     scaler = MinMaxScaler()
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -142,12 +152,19 @@ def main():
                             args.max_epochs, device,
                             f"CNN1D_fold{fold}")
 
+        # torch.save({
+        #     'model_state_dict': model.state_dict(),
+        #     'scaler': scaler,
+        #     'loss_history': history
+        # }, f"models/CNN1D_{args.liquid}_fold{fold}.pt")
+        # print(f"Saved models/CNN1D_{args.liquid}_fold{fold}.pt")
+
         torch.save({
             'model_state_dict': model.state_dict(),
             'scaler': scaler,
             'loss_history': history
-        }, f"Models/CNN1D_{args.liquid}_fold{fold}.pt")
-        print(f"Saved Models/CNN1D_{args.liquid}_fold{fold}.pt")
+        }, os.path.join(phone_models_dir, f"CNN1D_{args.liquid}_fold{fold}.pt"))
+        print(f"Saved {os.path.join(phone_models_dir, f'C N N1D_{args.liquid}_fold{fold}.pt')}")
 
 if __name__ == "__main__":
     main()
