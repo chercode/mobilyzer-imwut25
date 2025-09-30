@@ -5,9 +5,9 @@ This repository provides the official implementation of the  **IMWUT/Ubicomp 202
 **MobiLyzer: Fine-grained Mobile Liquid Analyzer**  
 *[Shahrzad Mirzaei]()*<sup>1</sup>, *[Mariam Bebawy]()*<sup>1</sup>, *[Amr Mohamed Sharafeldin]()*<sup>1</sup>, and *[Mohamed Hefeeda]()*<sup>1,2</sup>  
 
-<sup>1</sup> School of Computing Science, Simon Fraser University, BC, Canada
+<sup>1</sup> School of Computing Science, Simon Fraser University, Canada
 
-<sup>2</sup>  Qatar Computing Research Institute, Hamad Bin Khalifa University, Doha, Qatar
+<sup>2</sup>  Qatar Computing Research Institute, Qatar
 
  [Paper – pending]() | [Supplementary – pending]() | [Demo Video – pending]() | [Application – pending]()
 
@@ -30,10 +30,10 @@ This repository provides the official implementation of the  **IMWUT/Ubicomp 202
 The repository is organized into four main modules:
 
 1. **Intrinsic Decomposition**  
-   Separation of reflectance and illumination components to recover material properties.
+   Separation of reflectance and illumination components to recover material properties without the effect of iilumination.
 
 2. **Hyperspectral Reconstruction**  
-   Truthful reconstruction of spectral signatures from RGB smartphone images.  
+   Truthful reconstruction of spectral signatures from RGB+NIR smartphone images. 
 
 3. **Liquid Analysis**  
     classification for fraud detection, composition analysis, and diagnosis.  
@@ -48,7 +48,7 @@ The repository is organized into four main modules:
 ```text
 mobilyzer/
 ├─ reconstruction/                 # TSR training & evaluation
-│  ├─ architecture/                # MST++ backbone and TSR heads
+│  ├─ architecture/                # Spectral Reconstruction backbone and TSR heads
 │  ├─ helper_matrices/             # S, B, PS, PB (for cmf & NIR centers)
 │  ├─ train.py                     # Train TSR (truthful spectral recon)
 │  ├─ test.py                      # Quantitative eval (SAM/SID/PSNR/ΔE/MAE)
