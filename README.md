@@ -102,10 +102,6 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
 ```
 
 ## Dataset
-
-### HSI Dataset
-## Dataset
-
 ### HSI Dataset
 
 - We provide five hyperspectral imaging (HSI) datasets corresponding to different liquids: **evoo**, **milk**, **honey**, **medicine**, and **urine**. Each dataset is organized under its respective folder (e.g., `evoo`).  
