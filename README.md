@@ -129,7 +129,7 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
   
     - [milk]() ( GB)
 
-    - [honet]() ( GB)
+    - [honey]() ( GB)
     
     - [medicine]() ( GB)
   
@@ -164,7 +164,19 @@ We also evaluate MobiLyzer on three additional smartphones. Their datasets are p
 
   - [doogee]() ( GB)
     
+## Pretrained Models
 
+To simplify reproduction of the results, we provide pretrained models for both Truthful Spectral Reconstruction (TSR) and liquid analysis:
+
+TSR Models: Trained on the HSI datasets to reconstruct spectral information from smartphone images.
+
+Classification Models: Trained on reconstructed spectra (or smartphone images directly) to perform liquid identification, fraud detection, and quality analysis.
+
+Download the pretrained models from: pretrained_models.zip
+ (GB).
+After extraction, place the folder under the project root (e.g., models/).
+
+This allows you to directly run the reconstruction and classification pipelines without retraining, significantly reducing compute and storage requirements.
 
 
 ## Getting Started
