@@ -103,31 +103,73 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
 
 ## Dataset
 
+### HSI Dataset
+## Dataset
 
-```text
-XXX Download the data from this LINK XXX
-```
-```bash
+### HSI Dataset
 
-datasets/
-├─ data/
-│  ├─ evoo/
-│  ├─ milk/
-│  ├─ honey/
-│  ├─ medicine/
-│  └─ urine/
-│
-│  Each liquid folder contains:
-│  ├─ HSI/           # Hyperspectral data (spectra + aligned RGB/NIR)
-│  └─ phone/         # Smartphone data organized by each case
-│     ├─ fraud/
-│     ├─ origin/
-│     └─ quality/
-│
-└─ models/           # Trained weights / checkpoints
+- We provide five hyperspectral imaging (HSI) datasets corresponding to different liquids: **evoo**, **milk**, **honey**, **medicine**, and **urine**. Each dataset is organized under its respective folder (e.g., `evoo`).  
+
+- The directory structure is as follows:  
+  ```bash
+  datasets/
+  ├─ data/
+  │  ├─ evoo/
+  │  ├─ milk/
+  │  ├─ honey/
+  │  ├─ medicine/
+  │  └─ urine/
+  │
+  │  Each liquid folder contains:
+  │  ├─ HSI/           # Hyperspectral data (spectra + aligned RGB/NIR)
+  │  └─ phone/         # Smartphone data organized by each case
+  │     ├─ fraud/
+  │     ├─ origin/
+  │     └─ quality/
+  ```
+- To train the TSR from scratch, evaluate it, and perform liquid analysis, you need to download one or more of the following datasets:
+
+    - [evoo]() ( GB)
+  
+    - [milk]() ( GB)
+
+    - [honet]() ( GB)
+    
+    - [medicine]() ( GB)
+  
+    - [urine]() ( GB)
+
+- After downloading, unzip the dataset(s) and place them under the datasets directory. Please note that additional storage (comparable to the dataset size) is required to reproduce the reconstruction results.
+   
+- You can also download [all datasets together]() ( GB). 
+
+Alternatively, you can download all datasets together (GB).
 
 
-```
+### Smartphone Dataset
+If you are only interested in liquid analysis using pretrained models (without training TSR from scratch), you may download one or more of the following smartphone-based datasets for each liquid:
+
+  - [evoo]() ( GB)
+  
+  - [milk]() ( GB)
+
+  - [honey]() ( GB)
+    
+  - [medicine]() ( GB)
+  
+  - [urine]() ( GB)
+
+
+We also evaluate MobiLyzer on three additional smartphones. Their datasets are provided below for evaluation:
+
+  - [oneplus]() ( GB)
+  
+  - [ulefone]() ( GB)
+
+  - [doogee]() ( GB)
+    
+
+
 
 ## Getting Started
 
