@@ -1,6 +1,6 @@
 # MobiLyzer: Fine-grained Mobile Liquid Analyzer
 
-This repository provides the official implementation of the  **IMWUT/Ubicomp 2026** paper:  
+This repository provides the official implementation of the  **IMWUT 2025/Ubicomp 2026** paper:   
 
 **MobiLyzer: Fine-grained Mobile Liquid Analyzer**  
 *[Shahrzad Mirzaei]()*<sup>1</sup>, *[Mariam Bebawy]()*<sup>1</sup>, *[Amr Mohamed Sharafeldin]()*<sup>1</sup>, and *[Mohamed Hefeeda]()*<sup>1,2</sup>  
@@ -125,44 +125,21 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
   ```
 - To train the TSR from scratch, evaluate it, and perform liquid analysis, you need to download one or more of the following datasets:
 
-    - [evoo]() ( GB)
-  
-    - [milk]() ( GB)
-
-    - [honey]() ( GB)
-    
-    - [medicine]() ( GB)
-  
-    - [urine]() ( GB)
+    - [evoo]() ( GB) - [milk]() ( GB) - [honey]() ( GB) - [medicine]() ( GB) - [urine]() ( GB)
 
 - After downloading, unzip the dataset(s) and place them under the datasets directory. Please note that additional storage (comparable to the dataset size) is required to reproduce the reconstruction results.
    
 - You can also download [all datasets together]() ( GB). 
 
-Alternatively, you can download all datasets together (GB).
-
-
 ### Smartphone Dataset
 If you are only interested in liquid analysis using pretrained models (without training TSR from scratch), you may download one or more of the following smartphone-based datasets for each liquid:
 
-  - [evoo]() ( GB)
-  
-  - [milk]() ( GB)
-
-  - [honey]() ( GB)
-    
-  - [medicine]() ( GB)
-  
-  - [urine]() ( GB)
+  - [evoo]() ( GB)  - [milk]() ( GB)  - [honey]() ( GB)  - [medicine]() ( GB)  - [urine]() ( GB)
 
 
 We also evaluate MobiLyzer on three additional smartphones. Their datasets are provided below for evaluation:
 
-  - [oneplus]() ( GB)
-  
-  - [ulefone]() ( GB)
-
-  - [doogee]() ( GB)
+  - [oneplus]() ( GB)  - [ulefone]() ( GB)  - [doogee]() ( GB)
     
 ## Pretrained Models
 
@@ -203,17 +180,6 @@ Using Pre-trained TSR Models
 
 python3 reconstruction/test.py --model_path models/HSI/TSR_evoo_best.pth --input_dir datasets/phone/evoo/origin/IT --output_dir datasets/phone/evoo/origin/reconstructed/ --liquid evoo
 
-```
-```text
-Available pre-trained models:
-
-models/HSI/TSR_evoo_best.pth - Extra Virgin Olive Oil - Link
-models/HSI/TSR_milk_best.pth - Milk samples - Link
-models/HSI/TSR_honey_best.pth - Honey samples - Link
-models/HSI/TSR_medicine_best.pth - Medicine samples - Link
-models/HSI/TSR_urine_best.pth - Urine samples - Link
-
-```
 
 **Inputs:** use ``` datasets/phone/<liquid>/<task>/intrinsic/ ``` (albedo RGB) + the matching nir/ folder.
 
@@ -271,7 +237,7 @@ XXX Pending
 ```bibtex
 
 
-@article{mobilyzer-imwut26,
+@article{mobilyzer-imwut25,
   title={MobiLyzer: Fine-grained Mobile Liquid Analyzer},
   author={Mirzaei, Shahrzad and Bebawy, Mariam and Sharafeldin, Amr Mohamed and Hefeeda, Mohamed},
   journal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
