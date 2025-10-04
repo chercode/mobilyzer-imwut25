@@ -5,9 +5,8 @@ This repository provides the official implementation of the  **IMWUT 2025/Ubicom
 **MobiLyzer: Fine-grained Mobile Liquid Analyzer**  
 *[Shahrzad Mirzaei]()*<sup>1</sup>, *[Mariam Bebawy]()*<sup>1</sup>, *[Amr Mohamed Sharafeldin]()*<sup>1</sup>, and *[Mohamed Hefeeda]()*<sup>1,2</sup>  
 
-<sup>1</sup> School of Computing Science, Simon Fraser University, Canada
-
-<sup>2</sup>  Qatar Computing Research Institute, Qatar
+<small><sup>1</sup> School of Computing Science, Simon Fraser University, Canada</small> \\
+<small><sup>2</sup>  Qatar Computing Research Institute, Qatar</small>
 
  [Paper – pending]() | [Supplementary – pending]() | [Demo Video – pending]() | [Application – pending]()
 
