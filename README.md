@@ -125,35 +125,35 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
   ```
 - To train the TSR from scratch, evaluate it, and perform liquid analysis, you need to download one or more of the following datasets:
 
-    - [evoo]() ( GB) - [milk]() ( GB) - [honey]() ( GB) - [medicine]() ( GB) - [urine]() ( GB)
+    - [evoo]() - [milk]() - [honey]() - [medicine]() - [urine]()
 
-- After downloading, unzip the dataset(s) and place them under the datasets directory. Please note that additional storage (comparable to the dataset size) is required to reproduce the reconstruction results.
+- After downloading, unzip the dataset(s) and place them under the ```data``` directory. Please note that additional storage (comparable to the dataset size) is required to reproduce the reconstruction results.
    
-- You can also download [all datasets together]() ( GB). 
+- You can also download [all datasets together](). 
 
 ### Smartphone Dataset
 If you are only interested in liquid analysis using pretrained models (without training TSR from scratch), you may download one or more of the following smartphone-based datasets for each liquid:
 
-  - [evoo]() ( GB)  - [milk]() ( GB)  - [honey]() ( GB)  - [medicine]() ( GB)  - [urine]() ( GB)
+  - [evoo]()  - [milk]()  - [honey]()  - [medicine]()  - [urine]()
 
 
 We also evaluate MobiLyzer on three additional smartphones. Their datasets are provided below for evaluation:
 
-  - [oneplus]() ( GB)  - [ulefone]() ( GB)  - [doogee]() ( GB)
+  - [oneplus]()  - [ulefone]()  - [doogee]()
     
 ## Pretrained Models
 
 To simplify reproduction of the results, we provide pretrained models for both Truthful Spectral Reconstruction (TSR) and liquid analysis:
 
-TSR Models: Trained on the HSI datasets to reconstruct spectral information from smartphone images.
+HSI Models: Trained on the HSI datasets to reconstruct spectral information from smartphone images.
 
 Classification Models: Trained on reconstructed spectra (or smartphone images directly) to perform liquid identification, fraud detection, and quality analysis.
 
-Download the pretrained models from: pretrained_models.zip
- (GB).
-After extraction, place the folder under the project root (e.g., models/).
+Download the pretrained models from: [pretrained_models]()
 
-This allows you to directly run the reconstruction and classification pipelines without retraining, significantly reducing compute and storage requirements.
+After extraction, place the folder under the project root, ```models/```.
+
+This allows you to directly run the reconstruction and classification pipelines without retraining.
 
 
 ## Getting Started
@@ -179,7 +179,9 @@ Using Pre-trained TSR Models
 ```bash
 
 python3 reconstruction/test.py --model_path models/HSI/TSR_evoo_best.pth --input_dir datasets/phone/evoo/origin/IT --output_dir datasets/phone/evoo/origin/reconstructed/ --liquid evoo
+```
 
+Notes
 
 **Inputs:** use ``` datasets/phone/<liquid>/<task>/intrinsic/ ``` (albedo RGB) + the matching nir/ folder.
 
