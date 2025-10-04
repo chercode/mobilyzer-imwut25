@@ -231,18 +231,17 @@ XXX Link
 
 ## Citation
 
-If you use this code or dataset in your research, please cite:  
-
-XXX Pending
+If you use MobiLyzer in your research, please cite our paper:
 ```bibtex
-
-
-@article{mobilyzer-imwut25,
-  title={MobiLyzer: Fine-grained Mobile Liquid Analyzer},
-  author={Mirzaei, Shahrzad and Bebawy, Mariam and Sharafeldin, Amr Mohamed and Hefeeda, Mohamed},
-  journal={Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies},
-  year={2026}
+@article{Mirzaei2025MobiLyzer,
+  author = {Mirzaei, Shahrzad and Bebawy, Mariam and Sharafeldin, Amr Mohamed and Hefeeda, Mohamed},
+  title = {MobiLyzer: Fine-grained Mobile Liquid Analyzer},
+  year = {2025},
+  volume = {4},
+  number = {9},
+  journal = {Proc. ACM Interact. Mob. Wearable Ubiquitous Technol.},
+  doi = {10.1145/3770678}
 }
-
 ```
+
 

@@ -1,0 +1,33 @@
+cff-version: 1.0.0
+message: "If you use this code in your research, please cite our paper."
+authors:
+  - family-names: "Mirzaei"
+    given-names: "Shahrzad"
+  - family-names: "Bebawy"
+    given-names: "Mariam"
+  - family-names: "Sharafeldin"
+    given-names: "Amr Mohamed"
+  - family-names: "Hefeeda"
+    given-names: "Mohamed"
+title: "MobiLyzer: Fine-grained Mobile Liquid Analyzer"
+version: 1.0.0
+date-released: 2025-12-01
+url: "https://github.com/chercode/mobilyzer-imwut25"
+preferred-citation:
+  type: article
+  title: "MobiLyzer: Fine-grained Mobile Liquid Analyzer"
+  authors:
+    - family-names: "Mirzaei"
+      given-names: "Shahrzad"
+    - family-names: "Bebawy"
+      given-names: "Mariam"
+    - family-names: "Sharafeldin"
+      given-names: "Amr Mohamed"
+    - family-names: "Hefeeda"
+      given-names: "Mohamed"
+  journal: "Proc. ACM Interact. Mob. Wearable Ubiquitous Technol."
+  volume: 4
+  issue: 9
+  year: 2025
+  month: 12
+  doi: "10.1145/3770678"
