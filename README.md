@@ -206,17 +206,15 @@ Evaluate a pretrained classifier:
 python3 classification/test.py --models_dir /path/to/models/phone/evoo/<task>/ --liquid evoo 
 ```
 
-Notes
+**Inputs**
+- Each sample in `.../reconstructed/` is a `.mat` spectrum with **68 bands** produced by TSR.
+- `--models_dir` should point to a folder containing one or more `.pth` checkpoints compatible with the chosen `<liquid>` and `<task>`.
+**Liquid**
+- Set with `--liquid {evoo|milk|honey|medicine|urine}`.
+- Must match the data under `datasets/phone/<liquid>/...` and the model trained for that liquid.
 
-**Inputs:** each sample in ```.../reconstructed/``` should be a spectrum (.mat) with 68 bands from TSR.
-
-**Liquid:** 
-
-**Splits:** --n_splits 4 performs stratified K-fold (recommended);
-
-Outputs: 
-
-Reports: the test command prints accuracy/precision/recall (and confusion matrix if supported) and saves them next to the checkpoints.
+**Splits**
+- `--n_splits 4` runs **Stratified K-Fold** (recommended) for robust evaluation.
 
 
 ### 4) Mobile Application
