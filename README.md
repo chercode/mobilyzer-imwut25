@@ -9,7 +9,7 @@ This repository provides the official implementation of the  **IMWUT 2025/Ubicom
 
 <small><sup>2</sup>  Qatar Computing Research Institute, Qatar</small>
 
- [Paper – pending]() | [Supplementary – pending]() | [Demo Video – pending]() | [Application – pending]()
+ [Paper – pending]() | [Supplementary – pending]() | [Demo Video – pending]() | [Application – pending](https://github.com/chercode/MobiLyzer-Android/tree/release)
 
 ![mobilyzer](figures/Picture1.png)  
 
@@ -39,7 +39,7 @@ The repository is organized into four main modules:
     classification for fraud detection, composition analysis, and diagnosis.  
 
 4. **Mobile Application**  
-   A lightweight Android app for real-time liquid analysis on smartphones. [Link – pending]()
+   A lightweight Android app for real-time liquid analysis on smartphones. [Link – pending](https://github.com/chercode/MobiLyzer-Android/tree/release)
 
 ---
 
