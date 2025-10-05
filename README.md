@@ -106,7 +106,7 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
 
 - We provide five hyperspectral imaging (HSI) datasets corresponding to different liquids: **evoo**, **milk**, **honey**, **medicine**, and **urine**. Each dataset is organized under its respective folder (e.g., `evoo`).  
 
-- The directory structure is as follows:  
+- The data directory structure is as follows:  
   ```bash
 
   ├─ data/
@@ -119,10 +119,10 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
   │  Each liquid folder contains:
   │  ├─ HSI/           # Hyperspectral data (spectra + aligned RGB/NIR)
   │  └─ phone/ 
-        └─ `task/`    # Smartphone data organized by each task
-            ├─ `raw/`
-            ├─ `intrinsic/`
-            └─ `reconstructed/`
+  │     └─ task/    # Smartphone data organized by each task
+  │        ├─ raw/
+  │        ├─ intrinsic/
+  │        └─ reconstructed/
   
   ```
 - To train the TSR from scratch, evaluate it, and perform liquid analysis, you need to download one or more of the following datasets:
@@ -220,11 +220,12 @@ python3 classification/test.py --models_dir /path/to/models/phone/evoo/<task>/ -
 
 ### 4) Mobile Application
 
-XXX Link
+We created an Android Application for RipeTrack, which can be found [here](https://github.com/chercode/MobiLyzer-Android/tree/release) on GitHub.
 
 ## Citation
 
 If you use MobiLyzer in your research, please cite our paper:
+
 ```bibtex
 @article{Mirzaei2025MobiLyzer,
   author = {Mirzaei, Shahrzad and Bebawy, Mariam and Sharafeldin, Amr Mohamed and Hefeeda, Mohamed},
