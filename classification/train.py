@@ -1,4 +1,3 @@
-# train.py
 import os
 import argparse
 import numpy as np
@@ -14,6 +13,7 @@ from tqdm import tqdm
 
 from dataset import DatasetFromDirectory
 
+
 class CNN1DModel(nn.Module):
     def __init__(self, input_channels=1, num_classes=5, dropout_rate=0.3):
         super().__init__()
@@ -25,7 +25,7 @@ class CNN1DModel(nn.Module):
         self.bn3   = nn.BatchNorm1d(128)
         self.pool  = nn.MaxPool1d(2)
         self.drop  = nn.Dropout(dropout_rate)
-        self.fc1   = nn.Linear(128 * 8, 256)  # 68→34→17→8 after three pools
+        self.fc1   = nn.Linear(128 * 8, 256)  
         self.fc2   = nn.Linear(256, num_classes)
 
     def forward(self, x):
@@ -76,11 +76,14 @@ def fit_model(model, train_loader, val_loader, optimizer, criterion,
 
 def main():
     parser = argparse.ArgumentParser(description="Train CNN1D with hold‑out + k‑fold")
-    parser.add_argument('--data_root',    type=str, default='/media/sma318/TOSHIBA EXT/dataset_open/data/evoo/phone/origin/reconstructed/')
-    parser.add_argument('--liquid',        type=str, default='evoo')
+    parser.add_argument('--data_root', type=Path, required=True,
+                        help='Path to reconstructed phone data')
+    parser.add_argument('--liquid', type=str, required=True,
+                        choices=['evoo','milk','honey','medicine','urine'],
+                        help='Which liquid dataset to use')
     parser.add_argument('--test_size',    type=float, default=0.2)
-    parser.add_argument('--n_splits',     type=int,   default=4)
     parser.add_argument('--max_epochs',   type=int,   default=50)
+    parser.add_argument('--n_splits',     type=int,   default=4)
     parser.add_argument('--batch_size',   type=int,   default=256)
     parser.add_argument('--lr',           type=float, default=1e-4)
     parser.add_argument('--weight_decay', type=float, default=1e-5)

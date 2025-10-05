@@ -193,17 +193,12 @@ Notes
 
 ### 3) Liquid Analysis
 
-Train a 1D-CNN on reconstructed spectral signatures (68-D vectors) for tasks like fraud, origin, quality, and medical:
+Train our classification model on reconstructed spectral signatures (68-D vectors) for different liquids and tasks:
 
 data_root must point to reconstructed spectra produced by TSR
 
 ```bash
-python3 classification/train.py \
-  --data_root /path/to/datasets/phone/evoo/<task>/reconstructed/ \
-  --liquid evoo \
-  --n_splits 4 \
-  --max_epochs 100 \
-  --batch_size 256
+python3 classification/train.py --data_root /path/to/datasets/phone/<liquid>/<task>/phone/reconstructed/ --liquid evoo
 
 ```
 Evaluate a pretrained classifier:
