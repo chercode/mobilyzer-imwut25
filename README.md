@@ -203,10 +203,7 @@ python3 classification/train.py --data_root /path/to/datasets/phone/<liquid>/<ta
 ```
 Evaluate a pretrained classifier:
 ```bash
-python3 classification/test.py \
-  --models_dir models/phone/evoo/<task>/ \
-  --liquid evoo \
-  --n_splits 4
+python3 classification/test.py --models_dir /path/to/models/phone/evoo/<task>/ --liquid evoo 
 ```
 
 Notes

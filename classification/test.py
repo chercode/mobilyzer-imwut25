@@ -10,9 +10,13 @@ def main():
     parser = argparse.ArgumentParser(
         description="Evaluate PyTorch 1D‑CNN on hold‑out test set"
     )
-    parser.add_argument('--models_dir', type=str, default='models')
+    parser.add_argument('--models_dir', type=Path, required=True,
+                        help='Directory containing trained models (.pth files)')
+    parser.add_argument('--liquid', type=str, required=True,
+                        choices=['evoo','milk','honey','medicine','urine'],
+                        help='Liquid type to evaluate')
     parser.add_argument('--n_splits',   type=int, default=4)
-    parser.add_argument('--liquid',      type=str, default='evoo')
+    
     args = parser.parse_args()
     
     # load test split
