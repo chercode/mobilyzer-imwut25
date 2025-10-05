@@ -9,7 +9,7 @@ This repository provides the official implementation of the  **IMWUT 2025/Ubicom
 
 <small><sup>2</sup>  Qatar Computing Research Institute, Qatar</small>
 
- [Paper – pending]() | [Supplementary – pending]() | [Demo Video – pending]() | [MobiLyzer-Android Application](https://github.com/chercode/MobiLyzer-Android/tree/release)
+ [Paper](https://doi.org/10.1145/3770678) | [Supplementary – pending](https://doi.org/10.1145/3770678) | [Demo Video – pending]() | [MobiLyzer-Android Application](https://github.com/chercode/MobiLyzer-Android/tree/release)
 
 ![mobilyzer](figures/Picture1.png)  
 
@@ -100,7 +100,7 @@ CPU:
 python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.4.1 torchvision==0.19.1 triton==3.0.0
 
 ```
-
+---
 ## Dataset
 ### HSI Dataset
 
@@ -157,7 +157,7 @@ After extraction, place the folder under the project root, ```models/```.
 
 This allows you to directly run the reconstruction and classification pipelines without retraining.
 
-
+---
 ## Getting Started
 
 ### 1) Intrinsic Decomposition
@@ -216,11 +216,13 @@ python3 classification/test.py --models_dir /path/to/models/phone/evoo/<task>/ -
 
 **Splits**
 - `--n_splits 4` runs **Stratified K-Fold** (recommended) for robust evaluation.
-
+---
 
 ### 4) Mobile Application
 
 We created an Android Application for RipeTrack, which can be found [here](https://github.com/chercode/MobiLyzer-Android/tree/release) on GitHub.
+
+---
 
 ## Citation
 
