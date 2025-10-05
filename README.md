@@ -173,15 +173,13 @@ We adapted the intrinsic decomposition model from [Careaga et al.](https://githu
 ### 2) Truthful Spectral Reconstruction(TSR)
 Training TSR from Scratch
 ```bash
-python3 reconstruction/train.py --data_root /path/to/dataset/liquid/HSI/ --liquid evoo --epochs 20 --batch_size 16 --lr 1e-4 --patch_size 64
+python3 reconstruction/train.py --data_root /path/to/dataset/liquid/HSI/ --split_root /path/to/dataset/liquid/HSI/ --outf ../models/HSI/ --nir 940 --bands 68
 ```
 Using Pre-trained TSR Models
 ```bash
 
-python3 reconstruction/test.py --model_path models/HSI/TSR_evoo_best.pth --input_dir datasets/phone/evoo/origin/IT --output_dir datasets/phone/evoo/origin/reconstructed/ --liquid evoo
+python3 reconstruction/evaluate_mobile.py --model_path models/HSI/pretrained_model.pth --input_dir /path/to/dataset/liquid/phone/intrinsic --output_dir /path/to/dataset/liquid/phone/reconstructed/ --nir 940 --bands 68
 ```
-
-Notes
 
 **Inputs:** use ``` datasets/phone/<liquid>/<task>/intrinsic/ ``` (albedo RGB) + the matching nir/ folder.
 
@@ -209,6 +207,7 @@ python3 classification/test.py --models_dir /path/to/models/phone/evoo/<task>/ -
 **Inputs**
 - Each sample in `.../reconstructed/` is a `.mat` spectrum with **68 bands** produced by TSR.
 - `--models_dir` should point to a folder containing one or more `.pth` checkpoints compatible with the chosen `<liquid>` and `<task>`.
+
 **Liquid**
 - Set with `--liquid {evoo|milk|honey|medicine|urine}`.
 - Must match the data under `datasets/phone/<liquid>/...` and the model trained for that liquid.
