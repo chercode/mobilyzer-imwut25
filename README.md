@@ -119,10 +119,10 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
   │  Each liquid folder contains:
   │  ├─ HSI/           # Hyperspectral data (spectra + aligned RGB/NIR)
   │  └─ phone/ 
-  |      └─ ```<task>```    # Smartphone data organized by each task
-  |         ├─ raw/
-  │         ├─ intrinsic/
-  │         └─ reconstructed/
+        └─ `task/`    # Smartphone data organized by each task
+            ├─ `raw/`
+            ├─ `intrinsic/`
+            └─ `reconstructed/`
   
   ```
 - To train the TSR from scratch, evaluate it, and perform liquid analysis, you need to download one or more of the following datasets:
