@@ -108,7 +108,7 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
 
 - The directory structure is as follows:  
   ```bash
-  datasets/
+
   ├─ data/
   │  ├─ evoo/
   │  ├─ milk/
@@ -118,14 +118,16 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
   │
   │  Each liquid folder contains:
   │  ├─ HSI/           # Hyperspectral data (spectra + aligned RGB/NIR)
-  │  └─ phone/         # Smartphone data organized by each case
-  │     ├─ fraud/
-  │     ├─ origin/
-  │     └─ quality/
+  │  └─ phone/ 
+  |      └─ ```<task>```    # Smartphone data organized by each task
+  |         ├─ raw/
+  │         ├─ intrinsic/
+  │         └─ reconstructed/
+  
   ```
 - To train the TSR from scratch, evaluate it, and perform liquid analysis, you need to download one or more of the following datasets:
 
-    - [evoo]() - [milk]() - [honey]() - [medicine]() - [urine]()
+    - [evoo](https://drive.google.com/file/d/1vVkTpHR5Vmfibuwv5dhxGcaGEGzUlSTe/view?usp=drive_link) - [milk]() - [honey]() - [medicine]() - [urine]()
 
 - After downloading, unzip the dataset(s) and place them under the ```data``` directory. Please note that additional storage (comparable to the dataset size) is required to reproduce the reconstruction results.
    
