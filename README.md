@@ -130,8 +130,6 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
     - [evoo](https://drive.google.com/file/d/1MPZ9KFyL8dOD6WHQziyKszDlxNdgPI9M/view?usp=drive_link) - [milk](https://drive.google.com/file/d/1WdLbpQ-5lGT2PUenaWBeUghlGuBN6358/view?usp=drive_link) - [honey](https://drive.google.com/file/d/1PwY-CjMGWWDQgnNRRPqRDkenuvDGLvJ2/view?usp=drive_link) - [medicine](https://drive.google.com/file/d/1lk4CG9e5JsRLW6PKGFwW-vc3br-z87TY/view?usp=drive_link) - [urine](https://drive.google.com/file/d/13WJgscmSxbSLzv6kDy7zcJBo5HFmmsao/view?usp=drive_link)
 
 - After downloading, unzip the dataset(s) and place them under the ```data``` directory. Please note that additional storage (comparable to the dataset size) is required to reproduce the reconstruction results.
-   
-- You can also download [all datasets together](). 
 
 ### Smartphone Dataset
 If you are only interested in liquid analysis using pretrained models (without training TSR from scratch), you may download one or more of the following smartphone-based datasets for each liquid:
@@ -215,12 +213,12 @@ python3 classification/test.py --models_dir /path/to/models/phone/evoo/<task>/ -
 - Must match the data under `datasets/phone/<liquid>/...` and the model trained for that liquid.
 
 **Splits**
-- `--n_splits 4` runs **Stratified K-Fold** (recommended) for robust evaluation.
+- `--n_splits 4` runs **K-Fold** (recommended) for robust evaluation.
 ---
 
 ### 4) Mobile Application
 
-We created an Android Application for RipeTrack, which can be found [here](https://github.com/chercode/MobiLyzer-Android/tree/release) on GitHub.
+We created an Android Application for MobiLyzer, which can be found [here](https://github.com/chercode/MobiLyzer-Android/tree/release) on GitHub.
 
 ---
 
