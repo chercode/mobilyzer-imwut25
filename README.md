@@ -3,13 +3,13 @@
 This repository provides the official implementation of the  **IMWUT 2025/Ubicomp 2026** paper:   
 
 **MobiLyzer: Fine-grained Mobile Liquid Analyzer**  
-*[Shahrzad Mirzaei]()*<sup>1</sup>, *[Mariam Bebawy]()*<sup>1</sup>, *[Amr Mohamed Sharafeldin]()*<sup>1</sup>, and *[Mohamed Hefeeda]()*<sup>1,2</sup>  
+*[Shahrzad Mirzaei](https://github.com/chercode)*<sup>1</sup>, *[Mariam Bebawy](https://github.com/mariam-bebawy)*<sup>1</sup>, *[Amr Mohamed Sharafeldin](https://github.com/AmrMSharafeldin)*<sup>1</sup>, and *[Mohamed Hefeeda](https://github.com/mhefeeda)*<sup>1,2</sup>  
 
 <span style="font-size:9px"><sup>1</sup> School of Computing Science, Simon Fraser University, Canada</span>
 
 <small><sup>2</sup>  Qatar Computing Research Institute, Qatar</small>
 
- [Paper](https://doi.org/10.1145/3770678) | [Supplementary](https://doi.org/10.1145/3770678) | [MobiLyzer-Android Application](https://github.com/chercode/MobiLyzer-Android/tree/release)
+ [Paper](https://doi.org/10.1145/3770678) | [Supplementary](https://doi.org/10.1145/3770678) | [Phone Application](https://github.com/chercode/MobiLyzer-Android/tree/release)
 
 ![mobilyzer](figures/Picture1.png)  
 
@@ -127,7 +127,7 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
   ```
 - To train the TSR from scratch, evaluate it, and perform liquid analysis, you need to download one or more of the following datasets:
 
-    - [evoo](https://drive.google.com/file/d/1vVkTpHR5Vmfibuwv5dhxGcaGEGzUlSTe/view?usp=drive_link) - [milk]() - [honey]() - [medicine]() - [urine]()
+    - [evoo](https://drive.google.com/file/d/1MPZ9KFyL8dOD6WHQziyKszDlxNdgPI9M/view?usp=drive_link) - [milk](https://drive.google.com/file/d/1WdLbpQ-5lGT2PUenaWBeUghlGuBN6358/view?usp=drive_link) - [honey](https://drive.google.com/file/d/1PwY-CjMGWWDQgnNRRPqRDkenuvDGLvJ2/view?usp=drive_link) - [medicine](https://drive.google.com/file/d/1lk4CG9e5JsRLW6PKGFwW-vc3br-z87TY/view?usp=drive_link) - [urine](https://drive.google.com/file/d/13WJgscmSxbSLzv6kDy7zcJBo5HFmmsao/view?usp=drive_link)
 
 - After downloading, unzip the dataset(s) and place them under the ```data``` directory. Please note that additional storage (comparable to the dataset size) is required to reproduce the reconstruction results.
    
@@ -136,12 +136,12 @@ python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.
 ### Smartphone Dataset
 If you are only interested in liquid analysis using pretrained models (without training TSR from scratch), you may download one or more of the following smartphone-based datasets for each liquid:
 
-  - [evoo]()  - [milk]()  - [honey]()  - [medicine]()  - [urine]()
+  - [evoo](https://drive.google.com/file/d/1vVkTpHR5Vmfibuwv5dhxGcaGEGzUlSTe/view?usp=drive_link)  - [milk](https://drive.google.com/file/d/14bj_4kMPE6mGZYLaoW62R1HiUTI7Lqx7/view?usp=drive_link)  - [honey](https://drive.google.com/file/d/1ja5R-EqC99WC64I4iG8htLDviWD_KCxq/view?usp=drive_link)  - [medicine](https://drive.google.com/file/d/1z3rBU-J-wkhV6XUbLUGle1MioCMyQAHv/view?usp=drive_link)  - [urine](https://drive.google.com/file/d/1W9sR09mh2ud64CYaH8ApXnRdhMHAhHV6/view?usp=drive_link)
 
 
 We also evaluate MobiLyzer on three additional smartphones. Their datasets are provided below for evaluation:
 
-  - [oneplus]()  - [ulefone]()  - [doogee]()
+  - [oneplus](https://drive.google.com/file/d/1piJaskqZZylVrtkYXIJ_1PhTo5JU8us5/view?usp=drive_link)  - [ulefone](https://drive.google.com/file/d/1Z3JH7IS2CtznKguhhGv8XMGesy4guD1L/view?usp=drive_link)  - [doogee](https://drive.google.com/file/d/1kQa5154KubGk8z210C_sovdS3ukk-KoO/view?usp=drive_link)
     
 ## Pretrained Models
 
