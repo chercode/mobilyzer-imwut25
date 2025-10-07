@@ -54,11 +54,11 @@ parser.add_argument('--compressed', type=str2bool, default="True")
 parser.add_argument('--truthful', type=str2bool, default="True")
 parser.add_argument("--ensemble_mode", type=str, default="mean")
 parser.add_argument("--gpu_id", type=str, default="0")
+parser.add_argument("--phone", type=str, default="pixel", choices=["oneplus", "doogee", "ulefone", "pixel"], help="Phone model for dimension extraction")
 
 parser.add_argument("--split_root", type=str, default=None)
 parser.add_argument("--data_label", type=str, default="reconstruction")
 
-# parser.add_argument("--list_path", type=str, default="/mnt/mba216/GlucoSense/datasets/mobile_datasets/test_list.txt")
 parser.add_argument("--data_root", type=str, default=f"/media/sma318/TOSHIBA EXT/dataset_open/data/evoo/phone/origin/intrinsic/US/")
 parser.add_argument("--outf", type=str, default="/media/sma318/TOSHIBA EXT/dataset_open/data/evoo/phone/origin/reconstructed/US/", help="path log files")
 parser.add_argument("--pretrained_model_path", type=str, default="../models/HSI/dataset_open/2025_09_23_14_44_18/net_10epoch.pth")
@@ -165,61 +165,43 @@ def evaluate_mobile(model, test_path, save_path, save_mat=True, clean_track=Fals
 
     return inference.avg, inference.stddev
 
-# def evaluate_mobile_modified(model, test_path, save_path, save_mat=True):
-#     # Get all RAW images (1_RAW.png, 2_RAW.png, etc.)
-#     # rgb_images = sorted(glob.glob(os.path.join(test_path, f"*_{img_type}.png")))
-#     rgb_images = sorted(glob.glob(os.path.join(test_path, f"*_RGB.png")))
-#     print(f"Found {len(rgb_images)} RGB images")
+
+def apply_phone_transforms(rgb, nir, phone):
+    """
+    Apply phone-specific resize and crop transformations.
     
-#     # Calculate inference time for each image
-#     inference = AverageMeter()
+    Args:
+        rgb: RGB image array
+        nir: NIR image array
+        phone: Phone model name ('oneplus', 'doogee', 'ulefone', 'pixel')
     
-#     for rgb_path in tqdm(rgb_images):
-#         start_time = time.time()
-        
-#         # Process RGB image
-#         rgb = imageio.imread(rgb_path)
-#         rgb = np.float32(rgb)
-#         rgb = (rgb - rgb.min()) / (rgb.max() - rgb.min())
-
-#         # Process corresponding NIR image
-#         nir_path = rgb_path.replace(f"_RGB.png", "_NIR.png")
-#         nir = imageio.imread(nir_path)
-#         nir = np.float32(nir)
-#         nir = (nir - nir.min()) / (nir.max() - nir.min())
-#         if nir.ndim == 3: 
-#             nir = nir[:, :, 0]
-            
-#         # Stack RGB and NIR
-#         vnir = np.dstack((rgb, nir))
-#         vnir = np.expand_dims(np.transpose(vnir, [2, 0, 1]), axis=0).copy()
-#         vnir = torch.from_numpy(vnir).float().cuda()
-
-#         with torch.no_grad():
-#             output = forward_ensemble(vnir, model, opt.ensemble_mode)
-#         output = output.squeeze(0)
-            
-#         if truthful:
-#             _, _, output = tru.null2spec_modified(rgbn=vnir.squeeze(0), b=output, S=S, B=B, vmax=1, offset=True, norm=opt.norm)
-            
-#         output = output.cpu().numpy() * 1.0
-#         output = np.transpose(output, (1, 2, 0))
-#         output = np.minimum(output, 1.0)
-#         output = np.maximum(output, 0)
-
-#         inference.update(time.time() - start_time)
-
-#         # Save results
-#         if save_mat:
-#             base_id = os.path.basename(rgb_path).split('_')[0]
-#             mat_dir = os.path.join(save_path, f"{base_id}.mat")
-#             # mat_dir = os.path.join(save_path, f"{main_model}.mat")
-#             print(f"Saving results to {mat_dir}")
-#             utils.save_matv73_modified(mat_dir, var_name, output)
-
-#     return inference.avg, inference.stddev
-
-
+    Returns:
+        Transformed rgb and nir images
+    """
+    if phone == "oneplus":
+        rgb = cv2.resize(rgb, (1152, 1504), interpolation=cv2.INTER_LINEAR)
+        nir = cv2.resize(nir, (rgb.shape[1], rgb.shape[0]), interpolation=cv2.INTER_LINEAR)
+        rgb = center_crop_at(rgb, center_y=866, center_x=536, crop_size=512)
+        nir = center_crop_at(nir, center_y=830, center_x=582, crop_size=512)
+    
+    elif phone == "doogee":
+        rgb = cv2.resize(rgb, (1152, 1504), interpolation=cv2.INTER_LINEAR)
+        nir = cv2.resize(nir, (rgb.shape[1], rgb.shape[0]), interpolation=cv2.INTER_LINEAR)
+        rgb = center_crop_at(rgb, center_y=792, center_x=572, crop_size=512)
+        nir = center_crop_at(nir, center_y=806, center_x=488, crop_size=512)
+    
+    elif phone == "ulefone":
+        rgb = cv2.resize(rgb, (1152, 1504), interpolation=cv2.INTER_LINEAR)
+        nir = cv2.resize(nir, (rgb.shape[1], rgb.shape[0]), interpolation=cv2.INTER_LINEAR)
+        rgb = center_crop_at(rgb, center_y=750, center_x=622, crop_size=512)
+        nir = center_crop_at(nir, center_y=784, center_x=524, crop_size=512)
+    
+    elif phone == "pixel":
+        rgb = cv2.resize(rgb, (640, 480), interpolation=cv2.INTER_LINEAR)
+        rgb = center_crop_at(rgb, center_y=259, center_x=329, crop_size=128)
+        nir = center_crop_at(nir, center_y=242, center_x=333, crop_size=128)
+    
+    return rgb, nir
 
 
 def evaluate_mobile_modified(model, test_path, save_path, save_mat=True):
@@ -241,38 +223,8 @@ def evaluate_mobile_modified(model, test_path, save_path, save_mat=True):
 
         nir = imageio.imread(nir_path)
 
-
-        # for oneplus
-        # rgb = cv2.resize(rgb, (1152, 1504),  interpolation=cv2.INTER_LINEAR)
-        # nir = cv2.resize(nir, (rgb.shape[1], rgb.shape[0]), interpolation=cv2.INTER_LINEAR)
-        # rgb = center_crop_at(rgb, center_y=866, center_x=536, crop_size=512)
-        # nir = center_crop_at(nir, center_y=830, center_x=582, crop_size=512)
-    
-        # for doogee
-        # rgb = cv2.resize(rgb, (1152, 1504),  interpolation=cv2.INTER_LINEAR)
-        # nir = cv2.resize(nir, (rgb.shape[1], rgb.shape[0]), interpolation=cv2.INTER_LINEAR)
-        # rgb = center_crop_at(rgb, center_y=792, center_x=572, crop_size=512)
-        # nir = center_crop_at(nir, center_y=806, center_x=488, crop_size=512)
-
-        # for ulefone
-        # rgb = cv2.resize(rgb, (1152, 1504),  interpolation=cv2.INTER_LINEAR)
-        # nir = cv2.resize(nir, (rgb.shape[1], rgb.shape[0]), interpolation=cv2.INTER_LINEAR)
-        # rgb = center_crop_at(rgb, center_y=750, center_x=622, crop_size=512)
-        # nir = center_crop_at(nir, center_y=784, center_x=524, crop_size=512)
-
-        
-        #for pixel
-        rgb = cv2.resize(rgb, (640, 480), interpolation=cv2.INTER_LINEAR)
-
-    # Adjusted center (example)
-        rgb = center_crop_at(rgb, center_y=259, center_x=329, crop_size=128)
-        nir = center_crop_at(nir, center_y=242, center_x=333, crop_size=128)
-
-
-
-        # rgb = cv2.resize(rgb, (640, 480),  interpolation=cv2.INTER_LINEAR)
-        # rgb = center_crop_at(rgb, center_y=249, center_x=319, crop_size=256)
-        # nir = center_crop_at(nir, center_y=232, center_x=323, crop_size=256)
+        # Apply phone-specific transformations
+        rgb, nir = apply_phone_transforms(rgb, nir, opt.phone)
 
         rgb = np.float32(rgb)
         nir = np.float32(nir)
@@ -310,7 +262,6 @@ def evaluate_mobile_modified(model, test_path, save_path, save_mat=True):
             utils.save_matv73_modified(mat_dir, var_name, output)
 
     return inference.avg, inference.stddev
-
 
 
 def evaluate_mobile_modified_new(model, test_path, save_path, list_path, save_mat=True):
@@ -418,6 +369,7 @@ if __name__ == "__main__":
     sys.stdout = utils.Tee(sys.stdout, log_file)
 
     print(f"saving to {opt.outf}")    
+    print(f"Using phone model: {opt.phone}")
 
     # inference_time_avg, inference_time_std = evaluate_mobile_modified_new(model, test_path=opt.data_root, save_path=opt.outf, list_path=opt.list_path)
     # inference_time_avg, inference_time_std = evaluate_mobile_modified(model, test_path, opt.outf)
@@ -432,4 +384,3 @@ if __name__ == "__main__":
     print(f"Inference time = {inference_time_avg:.3f} +/- {inference_time_std:.3f}")
     print("--------------------------------------------")
     sys.stdout = sys.__stdout__
-

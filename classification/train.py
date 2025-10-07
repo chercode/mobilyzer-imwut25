@@ -57,7 +57,7 @@ def fit_model(model, train_loader, val_loader, optimizer, criterion,
             batch_losses.append(loss.item())
         loss_history.append(np.mean(batch_losses))
 
-        if epoch % 50 == 0 or epoch == max_epochs:
+        if epoch % 20 == 0 or epoch == max_epochs:
             model.eval()
             preds, trues = [], []
             with torch.no_grad():
@@ -82,7 +82,7 @@ def main():
                         choices=['evoo','milk','honey','medicine','urine'],
                         help='Which liquid dataset to use')
     parser.add_argument('--test_size',    type=float, default=0.2)
-    parser.add_argument('--max_epochs',   type=int,   default=50)
+    parser.add_argument('--max_epochs',   type=int,   default=20)
     parser.add_argument('--n_splits',     type=int,   default=4)
     parser.add_argument('--batch_size',   type=int,   default=256)
     parser.add_argument('--lr',           type=float, default=1e-4)

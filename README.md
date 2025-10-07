@@ -80,6 +80,8 @@ mobilyzer/
 - See `environment.yml` for pinned versions.  
 
 ```bash
+git clone https://github.com/chercode/mobilyzer-imwut25.git
+cd mobilyzer-imwut25
 conda env create -f environment.yml
 conda activate mobilyzer
 ```
@@ -188,6 +190,11 @@ python3 reconstruction/evaluate_mobile.py --model_path models/HSI/pretrained_mod
 **Bands:** ```--bands 68``` is the default we provide; higher values increase compute with little/no accuracy gain.
 
 **Outputs:** ```.mat``` per sample saved under .../reconstructed/. which will be the input to our classification model.
+
+**Phone Models:** By default, the pipeline uses Pixel settings. For other devices, add `--phone [model]`:
+```bash
+# Options: oneplus, doogee, ulefone, pixel (default)
+python3 reconstruction/evaluate_mobile.py --phone oneplus --model_path models/HSI/pretrained_model.pth --input_dir /path/to/dataset/liquid/phone/intrinsic --output_dir /path/to/dataset/liquid/phone/reconstructed/
 
 ### 3) Liquid Analysis
 

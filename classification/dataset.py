@@ -14,7 +14,7 @@ class DatasetFromDirectory(Dataset):
     IMAGE_SIZE = 32    # we want 64×64 center patches
     BLOCK_SIZE = 1
     var_name   = "cube"
-    labelslist = ["IT", "US"]  # only these three subfolders
+    # labelslist = ["IT", "US"]  # only these three subfolders
     # labelslist = ["0", "1", "2", "3", "lf"]  # only these three subfolders
 
 
@@ -23,6 +23,14 @@ class DatasetFromDirectory(Dataset):
         self.liquid  = liquid
         self.labels = []
         self.mats   = []
+
+        # Automatically discover subdirectories as labels
+        data_path = os.path.join(root, dataset_dir)
+        self.labelslist = sorted([
+            d for d in os.listdir(data_path) 
+            if os.path.isdir(os.path.join(data_path, d))
+        ])
+
 
         # scan only the three known class folders
         for directory in glob(os.path.join(root, dataset_dir, "*")):
