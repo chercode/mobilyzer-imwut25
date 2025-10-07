@@ -194,7 +194,10 @@ python3 reconstruction/evaluate_mobile.py --model_path models/HSI/pretrained_mod
 **Phone Models:** By default, the pipeline uses Pixel settings. For other devices, add `--phone [model]`:
 ```bash
 # Options: oneplus, doogee, ulefone, pixel (default)
+
 python3 reconstruction/evaluate_mobile.py --phone oneplus --model_path models/HSI/pretrained_model.pth --input_dir /path/to/dataset/liquid/phone/intrinsic --output_dir /path/to/dataset/liquid/phone/reconstructed/
+
+```
 
 ### 3) Liquid Analysis
 
