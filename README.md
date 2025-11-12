@@ -9,7 +9,7 @@ This repository provides the official implementation of the  **IMWUT 2025/Ubicom
 
 <small><sup>2</sup>  Qatar Computing Research Institute, Qatar</small>
 
- [Paper](https://doi.org/10.1145/3770678) | [Supplementary](https://doi.org/10.1145/3770678) | [Phone Application](https://github.com/chercode/MobiLyzer-Android/tree/release)
+ [Paper](https://www.cs.sfu.ca/~mhefeeda/Papers/imwut25_MobiLyzer.pdf) | [Supplementary](https://doi.org/10.1145/3770678) | [Phone Application](https://github.com/chercode/MobiLyzer-Android/tree/release)
 
 ![mobilyzer](figures/Picture1.png)  
 
